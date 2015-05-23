@@ -1,8 +1,8 @@
 import numpy as np
 from time import strftime
-from IPython.core.debugger import Tracer
+#from IPython.core.debugger import Tracer
 
-tracer = Tracer()
+#tracer = Tracer()
 
 
 def preprocess_comment(comment):
@@ -10,7 +10,9 @@ def preprocess_comment(comment):
     comment = comment.replace('_', ' ')
     #comment = comment.replace('.', ' ')
     comment = comment.replace("\\\\", "\\")
-    return comment.decode('unicode-escape')
+    #return comment.decode('unicode-escape')
+    return comment
+
 
 
 def deduplicate(comments, labels):

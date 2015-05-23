@@ -13,9 +13,9 @@ from sklearn.preprocessing import MinMaxScaler
 
 from util import load_subjectivity
 
-from IPython.core.debugger import Tracer
+#from IPython.core.debugger import Tracer
 
-tracer = Tracer()
+#tracer = Tracer()
 
 
 def remove_non_ascii(s):
@@ -224,9 +224,9 @@ class TextFeatureTransformer(BaseEstimator):
 
     def _preprocess(self, comments):
         # remove nicknames, urls, html
-        nick = re.compile(ur"@\w\w+:?")
-        url = re.compile(ur"http[^\s]*")
-        html = re.compile(ur"</?\w+[^>]*>")
+        nick = re.compile(r"@\w\w+:?")
+        url = re.compile(r"http[^\s]*")
+        html = re.compile(r"</?\w+[^>]*>")
         n_html = [len(html.findall(c)) for c in comments]
         comments = [html.sub(' ', c) for c in comments]
 
@@ -246,10 +246,10 @@ class TextFeatureTransformer(BaseEstimator):
 
         ur = "you are "
         UR = "YOU ARE "
-        comments_ascii = [re.sub(ur"[Yy]ou'? ?a?re ", ur, c)
+        comments_ascii = [re.sub(r"[Yy]ou'? ?a?re ", ur, c)
                 for c in comments_ascii]
         # again for the loud people (don't want to lose that)
-        comments_ascii = [re.sub(ur"YOU'? ?A?RE ", UR, c)
+        comments_ascii = [re.sub(r"YOU'? ?A?RE ", UR, c)
                 for c in comments_ascii]
         idiot = [len(re.findall("you.? [\w ]* idi.t", c))
                 for c in comments_ascii]
