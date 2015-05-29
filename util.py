@@ -29,7 +29,7 @@ def deduplicate(comments, labels):
 
 
 def load_data(ds="train.csv"):
-    print("loading")
+    print("loading %s", ds)
     comments = []
     dates = []
     labels = []
@@ -59,7 +59,7 @@ def load_extended_data():
 
 
 def load_test(ds="test.csv"):
-    print("loading test set")
+    print("loading %s", ds)
     comments = []
     dates = []
     with open(ds) as f:

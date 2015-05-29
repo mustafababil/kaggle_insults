@@ -16,6 +16,10 @@ from models import build_nltk_model
 #from sklearn.feature_selection import SelectPercentile, chi2
 
 import nltk
+"""
+    Uncomment and run the following 2 lines if you get error about nltk, after that it will download necessary files;
+    then you can re-comment them
+"""
 #nltk.download('wordnet')
 #nltk.download('punkt)
 
@@ -223,4 +227,4 @@ if __name__ == "__main__":
     #analyze_output()
     #explore_features()
     apply_models()
-    eval_model()
+    #eval_model()
